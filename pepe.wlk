@@ -1,8 +1,8 @@
 object pepe {
-    var categoria = gerente
-    var tipoDeBonoPorResultado   = bonoProcentaje
-    var tipoDeBonoPorPresentismo = bonoNormal
-    var diasQueFalto = 0
+    var property categoria = gerente
+    var property tipoDeBonoPorResultado   = bonoProcentaje
+    var property tipoDeBonoPorPresentismo = bonoNormal
+    var property diasQueFalto = 0
 	method sueldo() {
       return self.neto() + self.bonoResultado() + self.bonoPresentismo()
     }
@@ -74,6 +74,21 @@ object bonoNormal {
 
 object bonoAjuste {
   method bono(empleado) {
-    
+    if (empleado.cuantosFalto() == 0) {
+      return 100
+    } else {
+      return 0
+    }
   }
 }
+
+object bonoDemagogico {
+  method bono(empelado) {
+    if (empelado.neto() < 18000) {
+      return 500
+    } else {
+      return 300
+    }
+  }
+}
+
