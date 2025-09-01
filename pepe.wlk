@@ -2,8 +2,9 @@ object pepe {
     var property categoria = gerente
     var property tipoDeBonoPorResultado   = bonoProcentaje
     var property tipoDeBonoPorPresentismo = bonoNormal
-    var property diasQueFalto = 0
-	method sueldo() {
+    var diasQueFalto = 0 
+
+	  method sueldo() {
       return self.neto() + self.bonoResultado() + self.bonoPresentismo()
     }
 
@@ -11,8 +12,8 @@ object pepe {
       return diasQueFalto
     }
 
-    method falto(dias) {
-      diasQueFalto = dias
+    method diasQueFalto(_diasQueFalto) {
+      diasQueFalto = _diasQueFalto
     }
 
     method neto() {
@@ -28,6 +29,35 @@ object pepe {
     }
 }
 
+object sofia {
+  var property categoria = cadete  
+  var property tipoDeBonoPorResultados =  bonoMontoFijo
+  var diasQueFalto = 0 //cambiar 
+
+  method sueldo() {
+    return (self.neto() * 1.3) + self.bonoResultado()
+  }
+  
+  method cuantosFalto() {
+    return diasQueFalto
+  }
+
+  method diasQueFalto(_diasQueFalto) {
+    diasQueFalto = _diasQueFalto
+  }
+
+  method neto() {
+    return categoria.neto()
+  }
+
+  method bonoResultado() {
+    return tipoDeBonoPorResultados.bono()
+  }
+}
+
+
+
+
 object gerente {
   method neto() {
     return 15000
@@ -38,6 +68,10 @@ object cadete {
   method neto() {
     return 20000
   }
+}
+
+object vendedor {
+  
 }
 
 object bonoProcentaje {
