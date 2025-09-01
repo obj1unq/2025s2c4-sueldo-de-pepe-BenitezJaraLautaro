@@ -34,9 +34,27 @@ object gerente {
   }
 }
 
+object cadete {
+  method neto() {
+    return 20000
+  }
+}
+
 object bonoProcentaje {
   method bono(empleado) {
     return empleado.neto() * (10/100)
+  }
+}
+
+object bonoMontoFijo {
+  method bono(empleado) {
+    return 800
+  }
+}
+
+object bonoNulo {
+  method bono(empleado) {
+    return 0
   }
 }
 
@@ -51,5 +69,11 @@ object bonoNormal {
         return 0
       }
     }
+  }
+}
+
+object bonoAjuste {
+  method bono(empleado) {
+    
   }
 }
