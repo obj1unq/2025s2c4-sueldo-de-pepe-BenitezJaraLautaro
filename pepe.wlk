@@ -1,6 +1,6 @@
 object pepe {
     var property categoria = gerente
-    var property tipoDeBonoPorResultado   = bonoProcentaje
+    var property tipoDeBonoPorResultado   = bonoPorcentaje
     var property tipoDeBonoPorPresentismo = bonoNormal
     var diasQueFalto = 0 
 
@@ -71,10 +71,18 @@ object cadete {
 }
 
 object vendedor {
-  
+  var neto = 16000
+
+  method activarAumentoPorMuchasVentas() {
+    neto = 20000
+  } 
+
+  method desactivarAumentoPorMuchasVenats() {
+    neto = 16000
+  }
 }
 
-object bonoProcentaje {
+object bonoPorcentaje {
   method bono(empleado) {
     return empleado.neto() * (10/100)
   }
