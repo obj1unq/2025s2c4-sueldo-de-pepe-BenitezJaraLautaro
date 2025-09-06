@@ -1,6 +1,6 @@
 object pepe {
-    const categoria = gerente
-    var property tipoDeBonoPorResultado   = bonoPorcentaje
+    var property categoria = cadete
+    var property tipoDeBonoPorResultado   = bonoMontoFijo
     var property tipoDeBonoPorPresentismo = bonoNormal
     var property diasQueFalto = 0
 	
@@ -8,6 +8,9 @@ object pepe {
       return self.neto() + self.bonoResultado() + self.bonoPresentismo()
     }
 
+    method categoria(_categoria) {
+      categoria = _categoria
+    }
 
     method diasQueFalto(_diasQueFalto) {
       diasQueFalto = _diasQueFalto
@@ -26,6 +29,29 @@ object pepe {
     }
 }
 
+object sofia {
+  var property categoria = cadete  
+  var property tipoDeBonoPorResultados =  bonoMontoFijo
+  var property diasQueFalto = 0 
+
+  method sueldo() {
+    return (self.neto() * 1.3) + self.bonoResultado()
+  }
+  
+  method diasQueFalto(_diasQueFalto) {
+    diasQueFalto = _diasQueFalto
+  }
+
+  method neto() {
+    return categoria.neto()
+  }
+
+  method bonoResultado() {
+    return tipoDeBonoPorResultados.bono()
+  }
+}
+
+
 object gerente {
   method neto() {
     return 15000
@@ -38,6 +64,29 @@ object cadete {
   }
 }
 
+object vendedor {//Es correcto esta forma?
+  var neto = 16000
+
+  method neto() {
+    return neto
+  }
+  
+  method activarAumentoPorMuchasVentas() {
+    neto = neto * 1.25
+  }
+
+  method desactivarAumentoPorMuchasVentas() {
+    neto = neto / 1.25
+  }
+}
+
+object medioTiempo {
+  var categoriaBase = cadete
+
+  method categoriaBase() {
+    return categoriaBase.neto() / 2 
+  }
+}
 
 
 object bonoPorcentaje {
@@ -62,10 +111,10 @@ object bonoNulo {
 
 object bonoNormal {
   method bono(empleado) {
-    if (empleado.cuantosFalto() == 0) {
+    if (empleado.diasQueFalto() == 0) {
       return 2000
     } else {
-      if (empleado.cuantosFalto() == 1) {
+      if (empleado.diasQueFalto() == 1) {
         return 1000
       } else {
         return 0
@@ -76,7 +125,7 @@ object bonoNormal {
 
 object bonoAjuste {
   method bono(empleado) {
-    if (empleado.cuantosFalto() == 0) {
+    if (empleado.diasQueFalto() == 0) {
       return 100
     } else {
       return 0
