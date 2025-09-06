@@ -7,9 +7,18 @@ object pepe {
     method sueldo() {
       return self.neto() + self.bonoResultado() + self.bonoPresentismo()
     }
+    
 
     method categoria(_categoria) {
       categoria = _categoria
+    }
+
+    method tipoDeBonoPorResultado(_tipoDeBonoPorResultado) {
+      tipoDeBonoPorResultado = _tipoDeBonoPorResultado
+    }
+
+    method tipoDeBonoPorPresentismo(_tipoDeBonoPorPresentismo) {
+      tipoDeBonoPorPresentismo = _tipoDeBonoPorPresentismo
     }
 
     method diasQueFalto(_diasQueFalto) {
@@ -31,11 +40,19 @@ object pepe {
 
 object sofia {
   var property categoria = cadete  
-  var property tipoDeBonoPorResultados =  bonoMontoFijo
+  var property tipoDeBonoPorResultado =  bonoMontoFijo
   var property diasQueFalto = 0 
 
   method sueldo() {
     return (self.neto() * 1.3) + self.bonoResultado()
+  }
+
+  method categoria(_categoria) {
+     categoria = _categoria
+  }
+
+  method tipoDeBonoPorResultado(_tipoDeBonoPorResultado) {
+    tipoDeBonoPorResultado = _tipoDeBonoPorResultado
   }
   
   method diasQueFalto(_diasQueFalto) {
@@ -47,7 +64,7 @@ object sofia {
   }
 
   method bonoResultado() {
-    return tipoDeBonoPorResultados.bono()
+    return tipoDeBonoPorResultado.bono()
   }
 }
 
@@ -80,7 +97,7 @@ object vendedor {//Es correcto esta forma?
   }
 }
 
-object medioTiempo {
+object medioTiempo { //No se me ocurrio alguna forma para que medioTiempo afecte a la categoria del empleado sin tener que definirla antes en el objeto medioTiempo
   var categoriaBase = cadete
 
   method categoriaBase(unaCategoria) {
