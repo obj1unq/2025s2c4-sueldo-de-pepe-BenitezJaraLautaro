@@ -8,3 +8,14 @@ describe "Sueldo Pepe" {
 	}
 	
 }
+
+describe "bonus" {
+  test "sueldo Pepe" {
+	medioTiempo.categoriaBase(cadete)
+	pepe.categoria(medioTiempo)
+	pepe.tipoDeBonoPorResultado(bonoPorcentaje)
+	pepe.tipoDeBonoPorPresentismo(bonoDemagogico)
+	pepe.diasQueFalto(1)
+	assert.equals(pepe.sueldo(), 11500)
+  }
+}
