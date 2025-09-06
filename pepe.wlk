@@ -83,7 +83,11 @@ object vendedor {//Es correcto esta forma?
 object medioTiempo {
   var categoriaBase = cadete
 
-  method categoriaBase() {
+  method categoriaBase(unaCategoria) {
+    categoriaBase = unaCategoria
+  }
+
+  method neto() {
     return categoriaBase.neto() / 2 
   }
 }
